@@ -1,0 +1,79 @@
+[2025-11-07 18:17:13] [backup] Starting backup to /home/devraj/assignment5/backups/backup_2025-11-07_18-17-13.tar.gz
+tar: Removing leading `/' from member names
+tar: /root/Documents: Cannot stat: No such file or directory
+tar: /root/Pictures: Cannot stat: No such file or directory
+tar: /root/Desktop: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+[2025-11-07 18:17:26] [update] Starting system update & cleanup
+Hit:1 https://download.docker.com/linux/ubuntu noble InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:3 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:6 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [52.2 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+Get:11 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [378 kB]
+Get:12 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:14 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7140 B]
+Get:15 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.0 kB]
+Get:16 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:17 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Fetched 1025 kB in 2s (415 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  libllvm19
+Use 'sudo apt autoremove' to remove it.
+The following packages will be upgraded:
+  containerd.io docker-ce docker-ce-cli docker-ce-rootless-extras
+  docker-compose-plugin
+5 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 88.4 MB of archives.
+After this operation, 185 kB disk space will be freed.
+Get:1 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce-cli amd64 5:28.5.2-1~ubuntu.24.04~noble [16.0 MB]
+Get:2 https://download.docker.com/linux/ubuntu noble/stable amd64 containerd.io amd64 1.7.29-1~ubuntu.24.04~noble [31.9 MB]
+Get:3 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce amd64 5:28.5.2-1~ubuntu.24.04~noble [19.8 MB]
+Get:4 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-ce-rootless-extras amd64 5:28.5.2-1~ubuntu.24.04~noble [6382 kB]
+Get:5 https://download.docker.com/linux/ubuntu noble/stable amd64 docker-compose-plugin amd64 2.40.3-1~ubuntu.24.04~noble [14.3 MB]
+Fetched 88.4 MB in 27s (3317 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 82506 files and directories currently installed.)
+Preparing to unpack .../docker-ce-cli_5%3a28.5.2-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-ce-cli (5:28.5.2-1~ubuntu.24.04~noble) over (5:28.5.1-1~ubuntu.24.04~noble) ...
+Preparing to unpack .../containerd.io_1.7.29-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking containerd.io (1.7.29-1~ubuntu.24.04~noble) over (1.7.28-1~ubuntu.24.04~noble) ...
+Preparing to unpack .../docker-ce_5%3a28.5.2-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-ce (5:28.5.2-1~ubuntu.24.04~noble) over (5:28.5.1-1~ubuntu.24.04~noble) ...
+Preparing to unpack .../docker-ce-rootless-extras_5%3a28.5.2-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:28.5.2-1~ubuntu.24.04~noble) over (5:28.5.1-1~ubuntu.24.04~noble) ...
+Preparing to unpack .../docker-compose-plugin_2.40.3-1~ubuntu.24.04~noble_amd64.deb ...
+Unpacking docker-compose-plugin (2.40.3-1~ubuntu.24.04~noble) over (2.40.2-1~ubuntu.24.04~noble) ...
+Setting up containerd.io (1.7.29-1~ubuntu.24.04~noble) ...
+Setting up docker-compose-plugin (2.40.3-1~ubuntu.24.04~noble) ...
+Setting up docker-ce-cli (5:28.5.2-1~ubuntu.24.04~noble) ...
+Setting up docker-ce-rootless-extras (5:28.5.2-1~ubuntu.24.04~noble) ...
+Setting up docker-ce (5:28.5.2-1~ubuntu.24.04~noble) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  libllvm19
+0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
+After this operation, 129 MB disk space will be freed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 82506 files and directories currently installed.)
+Removing libllvm19:amd64 (1:19.1.1-1ubuntu1~24.04.2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+[2025-11-07 18:18:17] [update] Update & cleanup finished
+[2025-11-07 18:18:58] [monitor] Monitoring started. Files: /var/log/auth.log /var/log/syslog | Pattern: failed password|segfault|error|panic|unauthorized|ssh.*disconnected|oom-killer
+[2025-11-07 18:18:58] [monitor] Press Ctrl+C to stop.
+[2025-11-07 18:19:49] [disk] Disk usage on / is 1% (threshold 88%)
