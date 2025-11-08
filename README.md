@@ -32,7 +32,8 @@ This project is part of **Assignment 5 (LinuxOS + LSP)**.
 Interactive menu to run all tools from one place:
 - Run backup
 - Perform system update & cleanup
-- Start live log monitoring 
+- Start live log monitoring
+- View Script Logs
 - Exit
 
 ---
@@ -51,4 +52,5 @@ cd Assignment5/scripts
 1) Run Backup
 2) Perform System Update & Cleanup
 3) Start Log Monitor (live)
-4) Exit
+4) View Script logs 
+5) Exit
