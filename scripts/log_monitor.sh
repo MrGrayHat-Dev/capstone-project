@@ -29,7 +29,7 @@ if [[ -z "${PATTERN}" ]]; then
   exit 1
 fi
 
-log "Monitoring started. Files: ${WATCH_FILES[*]} | Pattern: $PATTERN"
+log "Monitoring started."
 log "Press Ctrl+C to stop."
 
 # Optional: email alerts if 'mail' exists and ALERT_EMAIL is set
