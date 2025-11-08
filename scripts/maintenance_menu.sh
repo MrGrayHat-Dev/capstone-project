@@ -3,46 +3,36 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-CONF_FILE="$ROOT_DIR/config/log_monitor.conf"
 LOG_FILE="$ROOT_DIR/logs/script_logs.txt"
 
-# Pick your log files (edit if needed)
-WATCH_FILES=(/var/log/auth.log /var/log/syslog)
+mkdir -p "$ROOT_DIR/logs" "$ROOT_DIR/backups"
 
-mkdir -p "$(dirname "$LOG_FILE")"
-
-log(){ printf "[%s] [monitor] %s\n" "$(date '+%F %T')" "$*" | tee -a "$LOG_FILE"; }
-
-# Build grep -E pattern from non-empty, non-comment lines
-build_pattern(){
-  awk 'NF && $0 !~ /^#/' "$CONF_FILE" | paste -sd'|' -
+backups(){ bash "$SCRIPT_DIR/backup.sh"; read -rp "Press Enter to continue..."; }
+update_cleanup(){ bash "$SCRIPT_DIR/update_cleanup.sh"; read -rp "Press Enter to continue..."; }
+monitor(){
+  echo "Starting log monitor (Ctrl+C to stop)..."
+  bash "$SCRIPT_DIR/log_monitor.sh"
 }
+view_logs(){ ${PAGER:-less} "$LOG_FILE"; }
 
-if [[ ! -f "$CONF_FILE" ]]; then
-  echo "Config not found: $CONF_FILE" >&2
-  exit 1
-fi
-
-PATTERN="$(build_pattern)"
-if [[ -z "${PATTERN}" ]]; then
-  echo "No patterns found in $CONF_FILE" >&2
-  exit 1
-fi
-
-log "Monitoring started."
-
-log "Press Ctrl+C to stop."
-
-# Optional: email alerts if 'mail' exists and ALERT_EMAIL is set
-ALERT_EMAIL="${ALERT_EMAIL:-}"   # export ALERT_EMAIL=user@example.com to enable
-
-tail -Fn0 "${WATCH_FILES[@]}" | \
-while read -r line; do
-  if grep -Eiq -- "$PATTERN" <<<"$line"; then
-    msg="ALERT: $(date '+%F %T') :: $line"
-    log "$msg"
-    if [[ -n "$ALERT_EMAIL" ]] && command -v mail >/dev/null 2>&1; then
-      printf "%s\n" "$msg" | mail -s "Log Monitor Alert" "$ALERT_EMAIL" || true
-    fi
-  fi
+while true; do
+  clear
+  cat <<MENU
+================= System Maintenance Suite =================
+1) Run Backup
+2) Perform System Update & Cleanup
+3) Start Log Monitor (live)
+4) View Script Logs
+5) Exit
+============================================================
+MENU
+  read -rp "Choose an option [1-5]: " opt
+  case "$opt" in
+    1) backups ;;
+    2) update_cleanup ;;
+    3) monitor ;;
+    4) view_logs ;;
+    5) echo "Goodbye!"; exit 0 ;;
+    *) echo "Invalid option"; sleep 1 ;;
+  esac
 done
